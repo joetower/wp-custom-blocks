@@ -23,7 +23,8 @@
       "type": "string",
       "enum": [
         "content",
-        "wide"
+        "wide",
+        "full"
       ],
       "default": "content"
     },

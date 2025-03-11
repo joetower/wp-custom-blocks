@@ -27,6 +27,7 @@
 	// component variables
 	--cta-width--content: 80rem;
 	--cta-width--wide: 100rem;
+	--cta-width--full: 100%;
 
 	--cta-spacing-inline: 2rem;
 	--cta-spacing-block: 1.5rem;
@@ -180,6 +181,10 @@ body {
 
 	@media screen and (min-width: 1200px) {
 		flex: 0 60%;
+
+		> * {
+			max-width: var(--cta-width--content);
+		}
 	}
 
 	[component-layout-text="text-right"][component-animation='true'][component-is-animating='true'] & {

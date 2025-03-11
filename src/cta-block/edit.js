@@ -91,6 +91,10 @@ export default function Edit({attributes, setAttributes}) {
 							{
 								label: "Wide",
 								value: "wide"
+							},
+							{
+								label: "Full",
+								value: "full"
 							}
 						]
 					}

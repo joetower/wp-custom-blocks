@@ -22,6 +22,7 @@
   --site-global--color-tertiary-accent-light: hsl(95, 81%, 87%);
   --cta-width--content: 80rem;
   --cta-width--wide: 100rem;
+  --cta-width--full: 100%;
   --cta-spacing-inline: 2rem;
   --cta-spacing-block: 1.5rem;
   --cta-spacing-button-inline: 0.5rem;
@@ -155,6 +156,9 @@ body {
 @media screen and (min-width: 1200px) {
   .cta__text-container {
     flex: 0 60%;
+  }
+  .cta__text-container > * {
+    max-width: var(--cta-width--content);
   }
 }
 [component-layout-text=text-right][component-animation=true][component-is-animating=true] .cta__text-container {

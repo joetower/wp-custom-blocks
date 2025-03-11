@@ -19,7 +19,7 @@
 		},
 		"layout_width_variant": {
       "type": "string",
-			"enum": ["content", "wide"],
+			"enum": ["content", "wide", "full"],
 			"default": "content"
 		},
 		"layout_text_variant": {
