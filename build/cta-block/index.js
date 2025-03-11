@@ -70,7 +70,7 @@ const link = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)
   \**********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cta-block","version":"0.1.0","title":"CTA Block","category":"widgets","icon":"superhero","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["wide"]},"attributes":{"animation_enabled":{"type":"boolean","default":false},"layout_text_variant":{"type":"string","enum":["text-left","text-right"],"default":"text-right"},"layout_image_variant":{"type":"string","enum":["image-inline","image-offset"],"default":"image-inline"},"theme_color":{"type":"string","enum":["one","two","three"],"default":"one"},"image_id":{"type":"number"},"image_url":{"type":"string"},"heading":{"type":"string"},"body":{"type":"string"},"link":{"type":"object","default":{"title":"Learn More"}}},"textdomain":"cta-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cta-block","version":"0.1.0","title":"CTA Block","category":"widgets","icon":"superhero","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["wide"]},"attributes":{"animation_enabled":{"type":"boolean","default":false},"layout_width_variant":{"type":"string","enum":["content","wide"],"default":"content"},"layout_text_variant":{"type":"string","enum":["text-left","text-right"],"default":"text-right"},"layout_image_variant":{"type":"string","enum":["image-inline","image-offset"],"default":"image-inline"},"theme_color":{"type":"string","enum":["one","two","three"],"default":"one"},"image_id":{"type":"number"},"image_url":{"type":"string"},"heading":{"type":"string"},"body":{"type":"string"},"link":{"type":"object","default":{"title":"Learn More"}}},"textdomain":"cta-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -144,6 +144,7 @@ function Edit({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
     "component-animation": attributes.animation_enabled,
+    "component-layout-width": attributes.layout_width_variant,
     "component-layout-text": attributes.layout_text_variant,
     "component-layout-image": attributes.layout_image_variant,
     "component-theme": attributes.theme_color,
@@ -179,6 +180,19 @@ function Edit({
           onChange: val => setAttributes({
             animation_enabled: val
           })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+          label: "Layout Width Variant:",
+          onChange: val => setAttributes({
+            layout_width_variant: val
+          }),
+          value: attributes.layout_width_variant,
+          options: [{
+            label: "Content",
+            value: "content"
+          }, {
+            label: "Wide",
+            value: "wide"
+          }]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
           label: "Layout Text Variant:",
           onChange: val => setAttributes({

@@ -42,7 +42,7 @@ export default function Edit({attributes, setAttributes}) {
 	};
 
 	return (
-		<div { ...useBlockProps() } component-animation={attributes.animation_enabled} component-layout-text={attributes.layout_text_variant} component-layout-image={attributes.layout_image_variant} component-theme={attributes.theme_color}>
+		<div { ...useBlockProps() } component-animation={attributes.animation_enabled} component-layout-width={attributes.layout_width_variant} component-layout-text={attributes.layout_text_variant} component-layout-image={attributes.layout_image_variant} component-theme={attributes.theme_color}>
 			{/* link and link controls */}
 			<BlockControls>
 				<ToolbarGroup>
@@ -76,6 +76,24 @@ export default function Edit({attributes, setAttributes}) {
 					label="Animation enabled:"
 					checked={attributes.animation_enabled}
 					onChange={(val) => setAttributes({animation_enabled: val})}
+				/>
+				{/* Layout width variant */}
+				<SelectControl 
+					label="Layout Width Variant:"
+					onChange={(val) => setAttributes({layout_width_variant: val})}
+					value={attributes.layout_width_variant}
+					options={
+						[
+							{
+								label: "Content",
+								value: "content"
+							},
+							{
+								label: "Wide",
+								value: "wide"
+							}
+						]
+					}
 				/>
 				{/* Layout text variant */}
 					<SelectControl 

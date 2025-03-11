@@ -14,9 +14,19 @@ $heading = $attributes["heading"];
 	$layout_image_variant = $attributes["layout_image_variant"];
 	$theme_color = $attributes["theme_color"];
 	$animation_enabled = $attributes["animation_enabled"] == 1 ? "true" : "false";
+	$layout_width_variant = $attributes["layout_width_variant"];
 ?>
 
-<div <?php echo get_block_wrapper_attributes(["component-animation" => $animation_enabled, "component-is-animating" => 'false', "component-layout-text" => $layout_text_variant, "component-layout-image" => $layout_image_variant, "component-theme" => $theme_color]); ?>>
+<div <?php echo get_block_wrapper_attributes([
+	'class' => 'cta-block',
+	"component-animation" => $animation_enabled, 
+	"component-is-animating" => 'false', 
+	"component-layout-text" => $layout_text_variant, 
+	"component-layout-image" => $layout_image_variant,
+	"component-layout-width" => $layout_width_variant,
+	"component-theme" => $theme_color,
+	]);
+	?>>
 	<?php if (isset($attributes["image_id"])): ?>
 		<div class="cta__image-container">
 			<?php echo wp_get_attachment_image( $image_id, "large" ); ?>

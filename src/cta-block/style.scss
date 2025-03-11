@@ -23,6 +23,16 @@
 	--site-global--color-tertiary-accent: hsl(94, 88%, 37%);
 	--site-global--color-tertiary-accent-dark: hsl(94, 87%, 12%);
 	--site-global--color-tertiary-accent-light: hsl(95, 81%, 87%);
+
+	// component variables
+	--cta-width--content: 80rem;
+	--cta-width--wide: 100rem;
+
+	--cta-spacing-inline: 2rem;
+	--cta-spacing-block: 1.5rem;
+	--cta-spacing-button-inline: 0.5rem;
+	--cta-spacing-button-block: 1rem;
+	--cta-animation-duration: 800ms;
 }
 
 // need to hide horizontal scroll bar when animating
@@ -30,14 +40,7 @@ body {
 	overflow-x: hidden;
 }
 
-.wp-block-create-block-cta-block {
-	// component variables
-	--cta-spacing-inline: 2rem;
-	--cta-spacing-block: 1.5rem;
-	--cta-spacing-button-inline: 0.5rem;
-	--cta-spacing-button-block: 1rem;
-	--cta-animation-duration: 800ms;
-
+.cta-block {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--cta-background-color);
@@ -60,6 +63,18 @@ body {
 		@media screen and (min-width: 1200px) {
 			flex-direction: row-reverse;
 		}
+	}
+
+	&[component-layout-width="content"] {
+		margin-inline-start: auto;
+		margin-inline-end: auto;
+		max-width: var(--cta-width--content);
+	}
+
+	&[component-layout-width="wide"] {
+		margin-inline-start: auto;
+		margin-inline-end: auto;
+		max-width: var(--cta-width--wide);
 	}
 
 	// color themes
@@ -161,6 +176,7 @@ body {
 	flex-direction: column;
 	gap: 0.5rem;
 	padding: var(--cta-spacing-block) var(--cta-spacing-inline);
+	justify-content: center;
 
 	@media screen and (min-width: 1200px) {
 		flex: 0 60%;

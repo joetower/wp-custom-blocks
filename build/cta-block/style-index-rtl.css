@@ -20,60 +20,72 @@
   --site-global--color-tertiary-accent: hsl(94, 88%, 37%);
   --site-global--color-tertiary-accent-dark: hsl(94, 87%, 12%);
   --site-global--color-tertiary-accent-light: hsl(95, 81%, 87%);
+  --cta-width--content: 80rem;
+  --cta-width--wide: 100rem;
+  --cta-spacing-inline: 2rem;
+  --cta-spacing-block: 1.5rem;
+  --cta-spacing-button-inline: 0.5rem;
+  --cta-spacing-button-block: 1rem;
+  --cta-animation-duration: 800ms;
 }
 
 body {
   overflow-x: hidden;
 }
 
-.wp-block-create-block-cta-block {
-  --cta-spacing-inline: 2rem;
-  --cta-spacing-block: 1.5rem;
-  --cta-spacing-button-inline: 0.5rem;
-  --cta-spacing-button-block: 1rem;
-  --cta-animation-duration: 800ms;
+.cta-block {
   display: flex;
   flex-direction: column;
   background-color: var(--cta-background-color);
   color: var(--cta-text-color);
 }
 @media screen and (min-width: 1200px) {
-  .wp-block-create-block-cta-block {
+  .cta-block {
     --cta-spacing-inline: 2rem;
     --cta-spacing-block: 3rem;
     flex-direction: row;
   }
-  .wp-block-create-block-cta-block[component-layout-image=image-offset] {
+  .cta-block[component-layout-image=image-offset] {
     margin-top: calc(var(--cta-spacing-block) * 2);
   }
 }
 @media screen and (min-width: 1200px) {
-  .wp-block-create-block-cta-block[component-layout-text=text-left] {
+  .cta-block[component-layout-text=text-left] {
     flex-direction: row-reverse;
   }
 }
-.wp-block-create-block-cta-block[component-theme=one] {
+.cta-block[component-layout-width=content] {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  max-width: var(--cta-width--content);
+}
+.cta-block[component-layout-width=wide] {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  max-width: var(--cta-width--wide);
+}
+.cta-block[component-theme=one] {
   --cta-background-color: var(--site-global--color-primary);
   --cta-background-color-accent: var(--site-global--color-primary-accent);
   --cta-background-color-accent-dark: var(--site-global--color-primary-accent-dark);
   --cta-background-color-accent-light: var(--site-global--color-primary-accent-light);
   --cta-text-color: var(--cta-background-color-accent-dark);
 }
-.wp-block-create-block-cta-block[component-theme=two] {
+.cta-block[component-theme=two] {
   --cta-background-color: var(--site-global--color-secondary);
   --cta-background-color-accent: var(--site-global--color-secondary-accent);
   --cta-background-color-accent-dark: var(--site-global--color-secondary-accent-dark);
   --cta-background-color-accent-light: var(--site-global--color-secondary-accent-light);
   --cta-text-color: var(--cta-background-color-accent-dark);
 }
-.wp-block-create-block-cta-block[component-theme=three] {
+.cta-block[component-theme=three] {
   --cta-background-color: var(--site-global--color-tertiary);
   --cta-background-color-accent: var(--site-global--color-tertiary-accent);
   --cta-background-color-accent-dark: var(--site-global--color-tertiary-accent-dark);
   --cta-background-color-accent-light: var(--site-global--color-tertiary-accent-light);
   --cta-text-color: var(--cta-background-color-accent-dark);
 }
-.wp-block-create-block-cta-block[component-animation=true][component-is-animating=true] {
+.cta-block[component-animation=true][component-is-animating=true] {
   animation: fadeIn var(--cta-animation-duration) ease-in-out;
 }
 
@@ -138,6 +150,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   padding: var(--cta-spacing-block) var(--cta-spacing-inline);
+  justify-content: center;
 }
 @media screen and (min-width: 1200px) {
   .cta__text-container {
