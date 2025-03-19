@@ -18,7 +18,7 @@ $heading = $attributes["heading"];
 ?>
 
 <div <?php echo get_block_wrapper_attributes([
-	'class' => 'cta-block',
+	'class' => 'cta-block custom-block',
 	"component-animation" => $animation_enabled, 
 	"component-is-animating" => 'false', 
 	"component-layout-text" => $layout_text_variant, 

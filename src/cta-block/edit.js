@@ -42,7 +42,7 @@ export default function Edit({attributes, setAttributes}) {
 	};
 
 	return (
-		<div { ...useBlockProps() } component-animation={attributes.animation_enabled} component-layout-width={attributes.layout_width_variant} component-layout-text={attributes.layout_text_variant} component-layout-image={attributes.layout_image_variant} component-theme={attributes.theme_color}>
+		<div { ...useBlockProps() } className="cta-block wp-custom-block" component-animation={attributes.animation_enabled} component-layout-width={attributes.layout_width_variant} component-layout-text={attributes.layout_text_variant} component-layout-image={attributes.layout_image_variant} component-theme={attributes.theme_color}>
 			{/* link and link controls */}
 			<BlockControls>
 				<ToolbarGroup>

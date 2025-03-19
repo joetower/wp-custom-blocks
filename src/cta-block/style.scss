@@ -57,6 +57,16 @@ body {
 		&[component-layout-image="image-offset"] {
 			margin-top: calc(var(--cta-spacing-block) * 2);
 		}
+
+		&.alignwide {
+			.is-root-container & {
+				max-width: var(--cta-width--wide);
+			}
+		}
+
+		p {
+			margin: 0;
+		}
 	}
 
 	// reverse the order of the image and text
