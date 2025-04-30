@@ -54,6 +54,12 @@
 			"default": {
 				"title": "Learn More"
 			}
+		},
+		"link_2": {
+			"type": "object",
+			"default": {
+				"title": "Second link"
+			}
 		}
 	},
 	"textdomain": "cta-block",

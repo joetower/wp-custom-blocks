@@ -37,8 +37,12 @@ export default function Edit({attributes, setAttributes}) {
 	
 	// setup state for link popover
 	const [ showLinkPopover, setShowLinkPopover ] = useState( false );
+	const [ showSecondaryLinkPopover, setShowSecondaryLinkPopover ] = useState( false );
 	const toggleLinkPopover = () => {
 			setShowLinkPopover( ( state ) => ! state );
+	};
+	const toggleSecondaryLinkPopover = () => {
+			setShowSecondaryLinkPopover( ( state ) => ! state );
 	};
 
 	return (
@@ -48,9 +52,15 @@ export default function Edit({attributes, setAttributes}) {
 				<ToolbarGroup>
 					<ToolbarButton
 						icon={ link }
-						label="Link"
+						label="Primary Link"
 						onClick={toggleLinkPopover}
 						isPressed={showLinkPopover}
+					/>
+					<ToolbarButton
+						icon={ link }
+						label="Secondary Link"
+						onClick={toggleSecondaryLinkPopover}
+						isPressed={showSecondaryLinkPopover}
 					/>
 				</ToolbarGroup>
 				{showLinkPopover && (
@@ -59,8 +69,19 @@ export default function Edit({attributes, setAttributes}) {
 							searchInputPlaceholder="Search here..."
 							value={ attributes.link }
 							onChange={ ( newLink ) => {
-								console.log(newLink)
 								setAttributes( { link: {...newLink, title: attributes.link.title || ""} } ) }
+							}
+						>
+						</LinkControl>
+					</Popover>
+				)}
+				{showSecondaryLinkPopover && (
+					<Popover>
+						<LinkControl
+							searchInputPlaceholder="Search here..."
+							value={ attributes.link_2 || {} }
+							onChange={ ( newLink ) => {
+								setAttributes( { link_2: {...newLink, title: attributes.link_2?.title || ""} } ) }
 							}
 						>
 						</LinkControl>
@@ -209,7 +230,15 @@ export default function Edit({attributes, setAttributes}) {
 					allowedFormats={[]}
 					value={attributes.link.title}
 					onChange={(newTitle) => setAttributes({link: {...attributes.link, title: newTitle}})}
-					placeholder='Button text'
+					placeholder='Primary Button text'
+				/>
+				<RichText 
+					tagName='a'
+					className='cta__button-secondary'
+					allowedFormats={[]}
+					value={attributes.link_2.title || ""}
+					onChange={(newTitle) => setAttributes({link_2: {...(attributes.link_2 || {}), title: newTitle}})}
+					placeholder='Secondary Button text'
 				/>
 			</div>
 		</div>

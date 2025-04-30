@@ -10,6 +10,7 @@ $heading = $attributes["heading"];
 	$body = $attributes["body"];
 	$image_id = $attributes["image_id"];
 	$link = $attributes["link"];
+	$link2 = $attributes["link_2"];
 	$layout_text_variant = $attributes["layout_text_variant"];
 	$layout_image_variant = $attributes["layout_image_variant"];
 	$theme_color = $attributes["theme_color"];
@@ -41,9 +42,18 @@ $heading = $attributes["heading"];
 			<p>
 				<?php echo $body ?>
 			</p>
-			<a target="<?php echo $link["opensInNewTab"] ? '_blank' : '_self' ?>" href="<?php echo $link["url"] ?>" class="cta__button">
-				<?php echo $link["title"] ?>
-			</a>
+			<div class="cta__links">
+				<?php if (isset($link["url"])): ?>
+					<a href="<?php echo $link["url"] ?>" class="cta__button" data-button-style="filled">
+						<?php echo $link["title"] ?>
+					</a>
+				<?php endif; ?>
+				<?php if (isset($link2["url"])): ?>
+					<a href="<?php echo $link2["url"] ?>" class="cta__button" data-button-style="outlined">
+						<?php echo $link2["title"] ?>
+					</a>
+				<?php endif; ?>
+			</div>
 		</div>
 	<?php endif; ?>
 </div>
